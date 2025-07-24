@@ -1,18 +1,18 @@
 'use client'
 
 import { createContext, useContext, useState, ReactNode } from 'react'
-import { PRData } from './interface'
-import { prData as initialPrData } from './data' // Import your data here
+import { ExciseData, PRData } from './interface'
+import { prData as initialPrData } from './data'
 
 type SharedContextType = {
-    prData: PRData[]
-    setPrData: (data: PRData[]) => void
+    prData: ExciseData[]
+    setPrData: (data: ExciseData[]) => void
 }
 
 const SharedContext = createContext<SharedContextType | undefined>(undefined)
 
 export function SharedProvider({ children }: { children: ReactNode }) {
-    const [prData, setPrData] = useState<PRData[]>(initialPrData)
+    const [prData, setPrData] = useState<ExciseData[]>(initialPrData)
 
     return (
         <SharedContext.Provider value={{ prData, setPrData }}>
